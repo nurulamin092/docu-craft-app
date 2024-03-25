@@ -13,11 +13,11 @@ const ContentDisplay = async ({ id }) => {
         <h1>{documentContent.title}</h1>
         <div>
           <span>Published On:{documentContent.data}</span> by{" "}
-          <Link href={`/author/${documentContent}`}>
+          <Link href={`/author/${documentContent.author}`}>
             {documentContent.author}
           </Link>{" "}
           under the{" "}
-          <Link href={`/category/${documentContent.category}`}>
+          <Link href={`/categories/${documentContent.category}`}>
             {documentContent.category}
           </Link>{" "}
           Category
@@ -26,6 +26,10 @@ const ContentDisplay = async ({ id }) => {
           {documentContent.tags &&
             documentContent.tags.map((tag) => <Tags key={tag} tag={tag} />)}
         </div>
+        <div
+          className="lead"
+          dangerouslySetInnerHTML={{ __html: documentContent.contentHtml }}
+        />
       </article>
     </>
   );
