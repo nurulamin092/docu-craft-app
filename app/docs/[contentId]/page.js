@@ -1,11 +1,10 @@
+import ContentDisplay from "@/components/ContentDisplay";
 
 
-const page = ({ params: { contentId } }) => {
+const ContentPage = ({ params: { contentId } }) => {
     return (
-        <div>
-            {contentId}
-        </div>
+        <ContentDisplay id={contentId} />
     );
 };
 
-export default page;
+export default ContentPage;
