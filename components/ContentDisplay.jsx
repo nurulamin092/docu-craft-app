@@ -1,9 +1,11 @@
 import { getDocumentContent } from "@/lib/doc";
 import Link from "next/link";
 import React from "react";
+import Tags from "./Tags";
 
 const ContentDisplay = async ({ id }) => {
-  const documentContent = await getDocumentContent();
+  const documentContent = await getDocumentContent(id);
+  console.log(documentContent);
 
   return (
     <>
@@ -19,6 +21,10 @@ const ContentDisplay = async ({ id }) => {
             {documentContent.category}
           </Link>{" "}
           Category
+        </div>
+        <div>
+          {documentContent.tags &&
+            documentContent.tags.map((tag) => <Tags key={tag} tag={tag} />)}
         </div>
       </article>
     </>
